@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Life - ICST University</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Inter and Oswald -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS for variables and specific elements not fully covered by Tailwind -->
+    <style>
+        /* Custom CSS variables and base styles (consistent with other pages) */
+        :root {
+            --primary-color: #550808; /* Darker Blue */
+            --secondary-color: #d3a42f; /* Gold/Orange */
+            --accent-color: #f5f5f5; /* Light Gray */
+            --light-color: #ffffff; /* White */
+            --dark-color: #333;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-oswald {
+            font-family: 'Oswald', sans-serif;
+        }
+
+        /* Custom utility classes for colors */
+        .bg-primary { background-color: var(--primary-color); }
+        .text-primary { color: var(--primary-color); }
+        .bg-secondary { background-color: var(--secondary-color); }
+        .text-secondary { color: var(--secondary-color); }
+        .bg-accent { background-color: var(--accent-color); }
+        .text-accent { color: var(--accent-color); }
+        .bg-light { background-color: var(--light-color); }
+        .text-light { color: var(--light-color); }
+        .text-dark { color: var(--dark-color); }
+
+        /* Navbar specific styles for background and border (consistent with other pages) */
+        .navbar-custom {
+            background: rgb(102, 0, 0) !important; /* Original red from your CSS */
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        /* Page Header (consistent with other pages) */
+        .page-header {
+            background: linear-gradient(rgba(13, 44, 84, 0.85), rgba(13, 44, 84, 0.85)), url('https://placehold.co/1920x400/0d2c54/ffffff?text=Student+Life') no-repeat center center; /* Placeholder image */
+            background-size: cover;
+        }
+
+        /* Section Title (consistent with other pages) */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        /* For left-aligned titles, hide the ::after pseudo-element */
+        .section-title.text-left::after {
+            display: none;
+        }
+
+        /* Footer (consistent with other pages) */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--accent-color);
+            border-radius: 32px 32px 0 0;
+        }
+        footer h5 {
+            color: var(--light-color);
+        }
+        footer a {
+            color: var(--accent-color);
+        }
+        footer a:hover {
+            color: var(--secondary-color);
+        }
+        .footer-bottom {
+            border-top: 1px solid #2a4a75;
+        }
+
+        /* Animations (consistent with other pages) */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .section, .page-header, .club-card, footer { /* Apply to relevant elements */
+            animation: fadeInUp 1s ease both;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(211,164,47,0.5);} /* Use secondary-color for pulse */
+            70% { box-shadow: 0 0 0 10px rgba(211,164,47,0);}
+            100% { box-shadow: 0 0 0 0 rgba(211,164,47,0);}
+        }
+        .btn-call-us:hover, .btn-explore:hover {
+            animation: pulse 0.7s;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0);}
+            50% { transform: translateY(-8px);}
+        }
+        .top-bar a:hover i,
+        footer .social-icons-footer a:hover i {
+            animation: bounce 0.6s ease forwards;
+        }
+
+        /* Club Card Specific Styles */
+        .club-card-image {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            transition: transform 0.5s ease; /* Ensure transition is here */
+        }
+        .club-card:hover .club-card-image {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Top Bar -->
+    <div class="bg-accent py-2 text-sm">
+        <div class="container mx-auto px-4 flex justify-between items-center flex-col sm:flex-row">
+            <div class="flex items-center gap-3">
+                <span class="font-bold text-primary"><i class="fas fa-map-marker-alt mr-1"></i> University Park, Sri Lanka</span>
+                <span class="hidden md:inline text-primary"><i class="fas fa-envelope mr-1"></i> admissions@icst.edu.lk</span>
+                <span class="hidden md:inline text-primary"><i class="fas fa-phone-alt mr-1"></i> +94 74 3444 444</span>
+            </div>
+            <div class="flex space-x-4 mt-2 sm:mt-0">
+                <a href="#" class="text-primary hover:text-secondary transition-colors"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-primary hover:text-secondary transition-colors"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-primary hover:text-secondary transition-colors"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-primary hover:text-secondary transition-colors"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar-custom sticky top-0 z-50 shadow-lg rounded-b-xl mb-2">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a class="flex items-center gap-2" href="index.html">
+                <!-- Using a placeholder image for the logo. Replace with your actual logo path. -->
+                <img src="images/logo.jpeg" alt="ICST Logo" class="h-10 w-auto rounded-full">
+                <span class="text-white text-2xl font-oswald font-bold tracking-wide">ICST</span>
+            </a>
+            <button class="lg:hidden text-white focus:outline-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+            <div class="hidden lg:flex items-center space-x-8" id="navbarNav">
+                <ul class="flex space-x-6">
+                    <li><a class="nav-link text-white hover:text-secondary font-bold uppercase transition-colors px-3 py-2 rounded-lg" href="index.html">Home</a></li>
+                    <li><a class="nav-link text-white hover:text-secondary font-bold uppercase transition-colors px-3 py-2 rounded-lg" href="about.html">About</a></li>
+                    <li><a class="nav-link text-white hover:text-secondary font-bold uppercase transition-colors px-3 py-2 rounded-lg" href="faculties.html">Faculties</a></li>
+                    <li><a class="nav-link text-white hover:text-secondary font-bold uppercase transition-colors px-3 py-2 rounded-lg" href="courses.html">Courses</a></li>
+                    <li><a class="nav-link text-white hover:text-secondary font-bold uppercase transition-colors px-3 py-2 rounded-lg" href="research.html">Research</a></li>
+                    <li><a class="nav-link text-secondary font-bold uppercase transition-colors px-3 py-2 rounded-lg bg-white bg-opacity-10" href="student-life.html">Student life</a></li>
+                    <li><a class="nav-link text-white hover:text-secondary font-bold uppercase transition-colors px-3 py-2 rounded-lg" href="contact.html">Contact</a></li>
+                </ul>
+                <a href="tel:+94743444444" class="btn-call-us bg-secondary text-primary font-bold py-2 px-5 rounded-full shadow-md hover:bg-white hover:text-secondary transition-all">CALL US</a>
+                <a href="login.html" class="inline-flex items-center justify-center px-4 py-2 border border-white text-white font-oswald font-bold rounded-full hover:bg-white hover:text-primary transition-colors">
+                    <i class="fas fa-sign-in-alt mr-2"></i> Login
+                </a>
+            </div>
+        </div>
+        <!-- Mobile Navigation (collapsed by default) -->
+        <div class="lg:hidden collapse" id="navbarNav">
+            <ul class="flex flex-col items-center py-4 space-y-2">
+                <li><a class="nav-link text-white hover:text-secondary font-bold uppercase transition-colors px-3 py-2 rounded-lg block w-full text-center" href="index.html">Home</a></li>
+                <li><a class="nav-link text-white hover:text-secondary font-bold uppercase transition-colors px-3 py-2 rounded-lg block w-full text-center" href="about.html">About</a></li>
+                <li><a class="nav-link text-white hover:text-secondary font-bold uppercase transition-colors px-3 py-2 rounded-lg block w-full text-center" href="faculties.html">Faculties</a></li>
+                <li><a class="nav-link text-white hover:text-secondary font-bold uppercase transition-colors px-3 py-2 rounded-lg block w-full text-center" href="courses.html">Courses</a></li>
+                <li><a class="nav-link text-white hover:text-secondary font-bold uppercase transition-colors px-3 py-2 rounded-lg block w-full text-center" href="research.html">Research</a></li>
+                <li><a class="nav-link text-secondary font-bold uppercase transition-colors px-3 py-2 rounded-lg bg-white bg-opacity-10 block w-full text-center" href="student-life.html">Student life</a></li>
+                <li><a class="nav-link text-white hover:text-secondary font-bold uppercase transition-colors px-3 py-2 rounded-lg block w-full text-center" href="contact.html">Contact</a></li>
+                <li><a href="tel:+94743444444" class="btn-call-us bg-secondary text-primary font-bold py-2 px-5 rounded-full shadow-md hover:bg-white hover:text-secondary transition-all block w-max mx-auto mt-4">CALL US</a></li>
+                <li><a href="login.html" class="inline-flex items-center justify-center px-4 py-2 border border-white text-white font-oswald font-bold rounded-full hover:bg-white hover:text-primary transition-colors block w-max mx-auto mt-2">
+                    <i class="fas fa-sign-in-alt mr-2"></i> Login
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header py-24 text-center text-light">
+        <div class="container mx-auto px-4">
+            <nav aria-label="breadcrumb">
+              <ol class="flex justify-center mb-2 space-x-2">
+                <li class="text-accent hover:text-light transition-colors"><a href="index.html">Home</a></li>
+                <li class="text-light font-bold" aria-current="page">/ Student Life</li>
+              </ol>
+            </nav>
+            <h1 class="font-oswald text-5xl font-bold mt-4">Student Life at ICST</h1>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <section class="section py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title font-oswald text-center text-primary text-4xl font-bold mb-16 relative">Explore Our Student Clubs</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="club-card relative rounded-xl overflow-hidden text-white shadow-xl h-[450px]">
+                    <img src="https://countryhelper.com/media/entertainment/tiles/Sinhalese_Sports_Club_Ground.jpg" alt="Sports Club" class="club-card-image absolute inset-0">
+                    <div class="card-content absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent text-center">
+                        <h3 class="font-oswald text-3xl font-bold mb-2">Sports Club</h3>
+                        <p class="text-lg mb-4">Where passion meets performance</p>
+                        <a href="#" class="btn-explore bg-secondary text-light font-bold py-3 px-8 rounded-full hover:bg-primary transition-colors shadow-lg">Explore</a>
+                    </div>
+                </div>
+                <div class="club-card relative rounded-xl overflow-hidden text-white shadow-xl h-[450px]">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/200_y_Anniversary_of_Berlin_Academy_1900.jpg" alt="Academic Societies" class="club-card-image absolute inset-0">
+                    <div class="card-content absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent text-center">
+                        <h3 class="font-oswald text-3xl font-bold mb-2">Academic Societies</h3>
+                        <p class="text-lg mb-4">Elevating intellectual pursuits</p>
+                        <a href="#" class="btn-explore bg-secondary text-light font-bold py-3 px-8 rounded-full hover:bg-primary transition-colors shadow-lg">Explore</a>
+                    </div>
+                </div>
+                <div class="club-card relative rounded-xl overflow-hidden text-white shadow-xl h-[450px]">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG0MoaMAicFbzXofjV9xR3vVsv0YUU9ap3PPGRaEiJIfqn7TjCB6g7DrC6xBVk_8NyUzE&usqp=CAU" alt="Talent Clubs" class="club-card-image absolute inset-0">
+                    <div class="card-content absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent text-center">
+                        <h3 class="font-oswald text-3xl font-bold mb-2">Talents Clubs</h3>
+                        <p class="text-lg mb-4">Unleashing creativity</p>
+                        <a href="#" class="btn-explore bg-secondary text-light font-bold py-3 px-8 rounded-full hover:bg-primary transition-colors shadow-lg">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-primary text-accent py-16 rounded-t-3xl mt-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2 lg:col-span-1 mb-4">
+                    <h5 class="text-light font-oswald text-xl font-semibold mb-4">ICST, University Park</h5>
+                    <p class="mb-2"><i class="fas fa-phone-alt mr-2"></i> +94 74 3444 444</p>
+                    <p class="mb-4"><i class="fas fa-envelope mr-2"></i> admissions@icst.edu.lk</p>
+                    <div class="flex space-x-4 mt-3 social-icons-footer">
+                        <a href="#" class="text-accent hover:text-secondary transition-colors text-2xl"><i class="fab fa-facebook-square"></i></a>
+                        <a href="#" class="text-accent hover:text-secondary transition-colors text-2xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-accent hover:text-secondary transition-colors text-2xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-accent hover:text-secondary transition-colors text-2xl"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-span-1 mb-4">
+                    <h5 class="text-light font-oswald text-xl font-semibold mb-4">Quick Links</h5>
+                    <ul class="space-y-2">
+                        <li><a href="student-life.html" class="text-accent hover:text-secondary transition-colors">Student Life</a></li>
+                        <li><a href="about.html" class="text-accent hover:text-secondary transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="text-accent hover:text-secondary transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-accent hover:text-secondary transition-colors">Gallery</a></li>
+                        <li><a href="research.html" class="text-accent hover:text-secondary transition-colors">Research</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-1 md:col-span-2 lg:col-span-2 mb-4">
+                    <h5 class="text-light font-oswald text-xl font-semibold mb-4">@ICST</h5>
+                    <p class="text-lg">"No matter the challenges to come, we will remain connected through our core values"</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-sm footer-bottom">
+                <p>Copyright &copy; 2025 ICST</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle (for navbar collapse) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const offset = 70; // Consistent offset for sticky header
+                    window.scrollTo({
+                        top: target.offsetTop - offset,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animate sections on scroll
+        const animatedElements = document.querySelectorAll('.section, .page-header, .club-card, footer');
+        function animateOnScroll() {
+            animatedElements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) { // Adjusted offset for better visibility
+                    element.style.opacity = 1;
+                    element.style.transform = 'none';
+                }
+            });
+        }
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('DOMContentLoaded', () => {
+            animatedElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(40px)';
+            });
+            animateOnScroll();
+        });
+    </script>
+</body>
+</html>
